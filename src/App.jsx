@@ -1,16 +1,16 @@
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import ContactForm from './components/ContactForm/ContactForm.jsx';
 import ContactList from './components/ContactList/ContactList.jsx';
 import SearchBox from './components/SearchBox/SearchBox.jsx';
+import { fetchContacts } from './redux/contactsOps.js';
 import s from './App.module.css';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchData } from './redux/contactsOps.js';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchData());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   return (

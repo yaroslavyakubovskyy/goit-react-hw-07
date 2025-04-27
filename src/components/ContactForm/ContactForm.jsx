@@ -1,9 +1,8 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import s from './ContactForm.module.css';
-
 import { useDispatch } from 'react-redux';
-import { postData } from '../../redux/contactsOps.js';
+import { addContact } from '../../redux/contactsOps.js';
+import s from './ContactForm.module.css';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -15,15 +14,15 @@ const ContactForm = () => {
       .required('This field is required'),
     number: Yup.string()
       .matches(
-        /^[0-9]{3}-[0-9]{2}-[0-9]{2}$/,
-        'The number must be in the format xxx-xx-xx'
+        /^\d{2}-\d{6}-\d{6}-\d{1}$/,
+        'The number format xx-xxxxxx-xxxxxx-x'
       )
       .required('This field is required'),
   });
 
   const handleSubmit = (value, action) => {
+    dispatch(addContact(value));
     action.resetForm();
-    dispatch(postData(value));
   };
 
   return (

@@ -1,16 +1,17 @@
 import { User, Phone } from 'lucide-react';
 import { useDispatch } from 'react-redux';
-import { deleteData } from '../../redux/contactsOps.js';
+import { deleteContact } from '../../redux/contactsOps.js';
 import s from './Contact.module.css';
 
 const Contact = ({ user }) => {
   const dispatch = useDispatch();
 
   const handleDelete = id => {
-    dispatch(deleteData(id));
+    dispatch(deleteContact(id));
   };
 
   const { id, name, number } = user;
+
   return (
     <li className={s.item}>
       <div>

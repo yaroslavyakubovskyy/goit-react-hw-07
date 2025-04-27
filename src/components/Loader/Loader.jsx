@@ -1,5 +1,5 @@
-import s from './Loader.module.css';
 import { DotLoader } from 'react-spinners';
+import s from './Loader.module.css';
 
 const Loader = () => {
   return (

@@ -11,7 +11,7 @@ a:active {
 
 button {
   cursor: pointer;
-  background-color: transparent;
+  /* background-color: transparent; */
 }
 
 ul li {
